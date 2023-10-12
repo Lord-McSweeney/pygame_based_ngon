@@ -10,6 +10,9 @@ class Screen:
   height = 500
   global_screen = pg.display.set_mode((Screen.width, Screen.height))
 
+  def update():
+    pygame.display.update()
+
 class DisplayObject:
   def __init__(self, x, y):
     self.x = x
