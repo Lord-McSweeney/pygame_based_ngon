@@ -46,7 +46,7 @@ class CollisionObject(DisplayObject):
   def render():
         for i in CollisionObject.collisionList:
           for j in CollisionObject.collisionList:
-            if i.visible:
+            if i != j and i.visible and j.visible:
                 i.collision(i, j)
 
   def __init__(x2, y2):
