@@ -10,7 +10,7 @@ class Map(CollisionObject):
     self.shape = shape
 
   def draw(self, screen):
-    if self.shape = "rectangle":
+    if self.shape == "rectangle":
       pygame.draw.rect(screen, self.color, pygame.Rect(self.x, self.y, self.x2, self.y2))
     else:
       print("shape not supported")
