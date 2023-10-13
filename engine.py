@@ -1,14 +1,14 @@
 import pygame
 
-pg.init()
-pg.font.init()
+pygame.init()
+pygame.font.init()
 
 clock = pygame.time.Clock()
 
 class Screen:
   width = 500
   height = 500
-  global_screen = pg.display.set_mode((Screen.width, Screen.height))
+  global_screen = pygame.display.set_mode((Screen.width, Screen.height))
 
   def update():
     pygame.display.update()
