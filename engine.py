@@ -22,7 +22,7 @@ class DisplayObject:
     self.y = y
     self.visible = visible
 
-    renderList.append(self)
+    DisplayObject.renderList.append(self)
 
   def draw(self, screen):
     pass
@@ -41,16 +41,20 @@ class TextField(DisplayObject):
 class CollisionObject(DisplayObject):
   collisionList = []
   def render():
-        for i in CollisionObject.collisionList:
-          for j in CollisionObject.collisionList:
-            if i != j and i.visible and j.visible:
-                i.collision(i, j)
+    for i in CollisionObject.collisionList:
+      i.draw(Screen.screen)
+        #for i in CollisionObject.collisionList:
+         # for j in CollisionObject.collisionList:
+          #  if i != j and i.visible and j.visible:
+           #     i.collision(i, j)
 
-  def __init__(x2, y2):
+  def __init__(self, x, y, x2, y2):
+    self.x = x
+    self.y = y
     self.x2 = x2
     self.y2 = y2
 
-    collisionList.append(self)
+    CollisionObject.collisionList.append(self)
 
   def collision(self, other_object):
     if self.x >= other_object.x and self.x2 <= other_object.x2 and self.y >= other_object.y and self.y2 <= other_object.y2:
