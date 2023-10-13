@@ -1,8 +1,6 @@
 from engine import *
 import pygame as pg, random as rd, math as mt
 
-screen = Screen()
-
 class Map(CollisionObject):
   def __init__(self, x, y, x2, y2, color="black", shape="rectangle"):
     super().__init__(x, y, x2, x2)
@@ -17,7 +15,7 @@ class Map(CollisionObject):
     
 
 while True:
-  screen.fill("black")
+  Screen.screen.fill("black")
 
-  screen.update()
+  pygame.display.update()
   clock.tick(60)
