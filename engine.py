@@ -8,17 +8,14 @@ clock = pygame.time.Clock()
 class Screen:
   width = 500
   height = 500
-  global_screen = pygame.display.set_mode((Screen.width, Screen.height))
-
-  def update():
-    pygame.display.update()
+  screen = pygame.display.set_mode((600, 600))
 
 class DisplayObject:
   renderList = []
   def render():
         for i in DisplayObject.renderList:
             if i.visible:
-                i.draw(Screen.global_screen)
+                i.draw(Screen.screen)
     
   def __init__(self, x, y, visible = True):
     self.x = x
