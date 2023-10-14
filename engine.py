@@ -28,9 +28,8 @@ class DisplayObject:
     pass
 
 class TextField(DisplayObject):
-  def __init__(x, y, text, font='Courier New', color='black', size=12):
-    self.x = x
-    self.y = y
+  def __init__(self, x, y, text, font='Courier New', color='black', size=12):
+    super().__init__(x, y)
     self.text = text
     self.font = pygame.font.SysFont(font, size)
     self.color = color
@@ -42,17 +41,14 @@ class TextField(DisplayObject):
 
 class CollisionObject(DisplayObject):
   collisionList = []
-  def render():
-    for i in CollisionObject.collisionList:
-      i.draw(Screen.screen)
+  
         #for i in CollisionObject.collisionList:
          # for j in CollisionObject.collisionList:
           #  if i != j and i.visible and j.visible:
            #     i.collision(i, j)
 
   def __init__(self, x, y, x2, y2):
-    self.x = x
-    self.y = y
+    super().__init__(x, y)
     self.x2 = x2
     self.y2 = y2
 
