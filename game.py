@@ -18,6 +18,5 @@ Map(300, 300, 200, 200)
 while True:
   Screen.screen.fill("black")
   DisplayObject.render()
-  CollisionObject.render()
   pygame.display.update()
   clock.tick(60)
