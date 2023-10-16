@@ -28,7 +28,7 @@ class DisplayObject:
     pass
 
 class TextField(DisplayObject):
-  def __init__(self, x, y, text, font='Courier New', color='black', size=12):
+  def __init__(self, x, y, text, size=12, font='Courier New', color='black'):
     super().__init__(x, y)
     self.text = text
     self.font = pygame.font.SysFont(font, size)
