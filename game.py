@@ -45,6 +45,9 @@ def makeMap(mapn = starting, difficulty = 1):
 class Player(CollisionObject):
     def __init__(self, x, y, x2, y2):
         super().__init__(x, y, x2, y2)
+        self.yvel = 0
+        self.xvel = 0
+        self.crouched = 0
 
     def draw(self, screen):
         pygame.draw.circle(screen, "white", ((abs(self.x2-self.x))/2+self.x, (abs(self.y2-self.y))/2+self.y), (abs(self.x2-self.x))/2)
@@ -53,17 +56,25 @@ class Player(CollisionObject):
         keys = pygame.key.get_pressed()
        
         if keys[pygame.K_LEFT]:
-            self.x -= 10
-            self.x2 -= 10
+            self.xvel = -10
         if keys[pygame.K_RIGHT]:
-            self.x += 10
-            self.x2 += 10
+            self.xvel = 10
         if keys[pygame.K_UP]:
-            self.y -= 10
-            self.y2 -= 10
+            self.yvel = -10
         if keys[pygame.K_DOWN]:
-            self.y += 10
-            self.y2 += 10
+            self.crouched = 1
+
+    def move(self):
+      self.x += self.xvel
+      self.y += self.yvel
+      self.x2 += self.xvel
+      self.y2 += self.yvel
+      self.xvel = 0
+      for object in CollisionObject.collisionList:
+        if self.collision(object) == True:
+          pass
+        else:
+          self.yvel += 1
        
 
 makeMap()
@@ -77,5 +88,6 @@ while True:
     Screen.screen.fill("black")
     DisplayObject.render()
     Player.controls(player)
+    Player.move(player)
     pygame.display.update()
     clock.tick(60)
