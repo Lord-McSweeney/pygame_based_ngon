@@ -50,5 +50,4 @@ class CollisionObject(DisplayObject):
     CollisionObject.collisionList.append(self)
 
   def collision(self, other_object):
-    if self.x >= other_object.x and self.x2 <= other_object.x2 and self.y >= other_object.y and self.y2 <= other_object.y2:
-      return(self, other_object)
+    return self.x >= other_object.x and self.x2 <= other_object.x2 and self.y >= other_object.y and self.y2 <= other_object.y2
